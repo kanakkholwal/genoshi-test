@@ -8,6 +8,7 @@ export default function Provider({children}: {children: React.ReactNode}) {
         Aos.init({
             duration: 1000,
             once: true,
+            disable: 'mobile',
             easing: 'ease-in-out'  
         })
     },[])

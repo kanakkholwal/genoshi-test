@@ -10,13 +10,16 @@ interface CardProps {
 
 export function PricingCard({plan, isSelected, setSelectedPlan,index}:CardProps) {
 
-    return (<div data-aos="fade-up"
-    data-aos-anchor-placement="top-bottom" data-aos-delay={((index ?? 1) + 0.5) * 300} className={"relative flex flex-col p-6 bg-slate-800 text-white shadow-lg rounded-lg justify-between border-2" + (isSelected ? " border-teal-500" : " border-transparent")}>
+    return (<div className={" fade-up relative flex flex-col p-6 bg-slate-800 text-white shadow-lg rounded-lg justify-between border-2 " + (isSelected ? " border-teal-500" : " border-transparent")} style={
+        {
+            animationDelay: `${(index ?? 1) * 500 + 1500}ms`
+        }
+    }>
     {isSelected && <div className="px-3 py-1 text-sm text-white bg-gradient-to-r from-blue-500 to-teal-500 rounded-full inline-block absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         Selected
     </div>}
     <div>
-        <h3 className="text-2xl font-bold text-center">{plan.name}</h3>
+        <h3 className="text-3xl font-bold text-center">{plan.name}</h3>
         <div className="mt-4 text-center text-slate-200 ">
             {typeof plan.price === "string" ? <h3 className="text-2xl font-bold text-center">{plan.price}</h3> : <>
                 <span className="text-4xl font-bold">
